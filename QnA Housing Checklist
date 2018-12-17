@@ -93,9 +93,9 @@ A: No
 
 Q(rats): Is there any accumulation of garbage or filth that may provide food or shelter for rodents, insects, or other pests; or that may contribute to accidents or disease?
 A(X): Yes
-	Q(12.1):GOTO:leadpaint
+	Q(12.1):GOTO:Leadpaint
 A: No
-	Q(12.2):GOTO:leadpaint
+	Q(12.2):GOTO:Leadpaint
 
 
 Q(Leadpaint):Is there any Lead paint that a child under age 6 could reach?
@@ -968,13 +968,18 @@ A: No
 
 
 Q(childunder6): If you have a child under the age of 6, does your landlord not remove or properly cover lead paint up to 5 feet from the floor?    -  (Repainting with a non-lead paint is not good enough.)(It is illegal to refuse to rent or to evict a household because of lead paint.)
-A(X): Yes	
+A(X): Yes
+	Q(120.3):GOTO:theend	
 A: No
+	Q(120.4):GOTO:theend
 
 
 
 
+Q(theend): The End. Thank you for taking this QnA. Would you like a copy of the results? - (recommended)
+A: Yes
 
+A: No
 
 
 
