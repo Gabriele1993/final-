@@ -451,7 +451,6 @@ A: No
 Q(ventilationorlight): Is there an issue with the ventilation or light?
 A: Yes
 	Q(30.64):GOTO:everyroom
-
 A: No
 	Q(30.641):GOTO:gasissue
 
@@ -487,7 +486,7 @@ Q(gasissue): Is there an issue with the electricity, wiring or gas?
 A: Yes
 	Q(59.1):GOTO:metered
 A: No
-
+	Q(59.12):GOTO:safetyissue
 
 
 Q(metered): Did the landlord not provide and pay for electricity and gas if your apartment is not individually metered?  -  (unless you have a written rental agreement that says you must pay for electric and gas.)
@@ -598,9 +597,174 @@ A: No
 
 Q(stairwaylight): If the dwelling has more than one unit, does the landlord not provide enough lighting for 24 hours a day in the stairways?
 A(X): Yes	
+	Q(74.1):GOTO:3ormoreunits
 A: No
+	Q(74.2):GOTO:3ormoreunits
 
 
+Q(3ormoreunits): If the buildings has 3 units or fewer, the light fixtures in common hallways, stairways, and other common passages may be wired to the service for the unit next to the fixture.  If that Is the case does the landlord not pay for electricity to the fixture?   - (unless you do not have a written agreement that says you pay for it. The landlord must also tell other occupants in the building about the agreement.)
+A(X): Yes
+	Q(74.21):GOTO:10ormoreunits
+A: No
+	Q(75.2):GOTO:10ormoreunits
+
+
+Q(10ormoreunits): If the Buildings  has 10 or more units, does it not have back-up emergency lighting independent of the conventional lighting?
+A(X): Yes
+	Q(75.31):GOTO:safetyissue
+A: No
+	Q(76.2):GOTO:safetyissue
+
+
+
+
+
+
+
+
+
+
+Q(safetyissue): Is a safety issue involved?
+A: Yes
+	Q(77.1):GOTO:freefromobstruction
+A: No
+	Q(77.11):GOTO:structuralissue
+
+
+Q(freefromobstruction): If the property has more than one unit, did the landlord not keep all shared exits free from obstruction?
+A(X): Yes
+	Q(78.1):GOTO:exitsfreefromobstruction
+A: No
+	Q(78.2):GOTO:exitsfreefromobstruction
+
+
+Q(exitsfreefromobstruction): Is the landlord keeping all exits from your unit free from obstruction?    -   (The landlord must also keep any shared exit free from obstruction.)
+A: Yes
+	Q(79.1):GOTO:iceandsnow
+A(X): No
+	Q(79.2):GOTO:iceandsnow
+
+
+
+Q(iceandsnow): Is the landlord keeping all exits safe, operable, and free of ice and snow?  -    (This includes exterior stairways and fire escapes. If you have an exit you do not share with anyone, you and your landlord can have a written agreement that says you must keep your exit free of snow and ice.)
+A: Yes
+	Q(80.1):GOTO:fireextinguishers
+A(X): No
+	Q(80.2):GOTO:fireextinguishers
+
+
+Q(fireextinguishers): Did the landlord install and maintain fire extinguishers as required by the local fire chief?
+A: Yes
+	Q(81.1):GOTO:exteriorwindows
+A(X): No
+	Q(81.2):GOTO:exteriorwindows
+
+
+Q(exteriorwindows): Is the landlord making sure that all exterior windows that open and all entry doors have working locks?
+A: Yes
+	Q(82.1):GOTO:buildingofthree
+A(X): No
+	Q(82.2):GOTO:buildingofthree
+
+
+
+
+
+Q(buildingofthree): Does your building have more than three apartments? 
+A: Yes 
+	Q(83.1):GOTO:mainfrontdoor
+A: No
+	Q(83.12):GOTO:structuralissue
+
+
+
+Q(mainfrontdoor): Does the main front door that closes and locks automatically and every exterior door have an operating lock?
+A: Yes
+	Q(84.1):GOTO:70feettall
+A: No
+	Q(84.2):GOTO:70feettall
+
+
+Q(70feettall): If the buildings is over 70 feet high, is there no automatic sprinkler system in accordance with the state Building Code?    -   (If you have questions, ask the Housing Inspector.)
+A(X): Yes
+	Q(85.1):GOTO:10ormoreunitss
+A: No
+	Q(85.2):GOTO:10ormoreunitss
+
+
+Q(10ormoreunitss): If the building has 10 or more units, does it not have lighted signs that show both a primary and a secondary means of exit?     -   (The signs must use symbols so that people do not need to speak English to find the exits.)
+A(X): Yes
+	Q(86.1):GOTO:smokedetec
+A: No
+	Q(86.2):GOTO:smokedetec
+
+
+Q(smokedetec): Did the landlord install and keep smoke detectors and carbon monoxide alarms in good working order?  -  (Ask the Fire Marshall if you have questions.)
+A: Yes
+	Q(87.1):GOTO:structuralissue
+A(X): No
+	Q(87.2):GOTO:structuralissue
+
+
+
+
+
+
+
+
+
+Q(structuralissue): Is there a structural maintenance issue?
+A: Yes
+	Q(88.1):GOTO:Foundation
+A: No
+	
+
+Q(Foundation): Is the Foundation: weathertight, free from chronic dampness, insect-proof, and rodent-proof, without free of holes, cracks, loose plaster and other defects?
+A: Yes 
+	Q(89.1):GOTO:floorsweatherright
+A(X): No
+	Q(88.12):GOTO:floorsweatherright
+
+Q(floorsweatherright): Are the Floors weathertight, free from chronic dampness, insect-proof, and rodent-proof, without free of holes, cracks, loose plaster and other defects?
+A: Yes 
+	Q(88.1233):GOTO:wallsweathertight
+A(X): No
+	Q(88.1244):GOTO:wallsweathertight
+
+
+Q(wallsweathertight): Are the walls weathertight, free from chronic dampness, insect-proof, and rodent-proof, without free of holes, cracks, loose plaster and other defects?
+A: Yes 
+	Q(88.12455):GOTO:ceilingweathertight
+A(X): No
+	Q(88.1266):GOTO:ceilingweathertight
+
+
+Q(ceilingweathertight): Are the ceilings weathertight, free from chronic dampness, insect-proof, and rodent-proof, without free of holes, cracks, loose plaster and other defects?
+A: Yes 
+	Q(92.1):GOTO:stormwindow
+A(X): No
+	Q(92.2):GOTO:stormwindow
+
+
+Q(stormwindow): Do the doors and windows have good weather stripping or a storm window or storm door? -   (They must also open fully and easily. All glass panes must be unbroken and caulked correctly.)
+A: Yes
+	Q(92.21):GOTO:roofweathertight
+A(X): No
+	Q(92.22):GOTO:roofweathertight
+
+
+Q(roofweathertight): Is the roof weathertight, free from chronic dampness, insect-proof, and rodent-proof, without free of holes, cracks, loose plaster and other defects?
+A: Yes 
+	Q(94.1):GOTO:chimneysandother
+A(X): No
+	Q(94.2):GOTO:chimneysandother
+
+
+Q(chimneysandother): Are the chimneys and other structural elements weathertight, free from chronic dampness, insect-proof, and rodent-proof, without free of holes, cracks, loose plaster and other defects?
+A: Yes 
+	
+A(X): No
+	
 
 
 
