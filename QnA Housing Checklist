@@ -398,7 +398,7 @@ Q(heatissues): Is there any issue with the heat?
 A: Yes
 	Q(30.52):GOTO:degrees68
 A: No
-
+	Q(30.522):GOTO:ventilationorlight
 
 Q(degrees68): From September 16 to June 14, does the landlord provide equipment and appliances to heat any room to be used for living, sleeping, cooking, or eating at a temperature of 68 degrees Fahrenheit between 7 a.m. and 11 p.m.?
 A: Yes
@@ -429,8 +429,94 @@ A(X): No
 
 
 Q(payheat): Did the landlord provide and pay for heat unless you signed a written agreement that says you must pay for heat?
-Yes: 
-No(X):
+A: Yes 
+	Q(30.60):GOTO:heatingseason
+A(X): No
+	Q(30.61):GOTO:heatingseason
+
+
+Q(heatingseason): Is the temperature more than 78 degrees Fahrenheit at any time during the heating season?
+A(X): Yes 
+	Q(30.62):GOTO:ventilationorlight
+A: No
+	Q(30.63):GOTO:ventilationorlight
+
+
+
+
+
+
+
+
+Q(ventilationorlight): Is there an issue with the ventilation or light?
+A: Yes
+	Q(30.64):GOTO:everyroom
+
+A: No
+	Q(30.641):GOTO:gasissue
+
+
+Q(everyroom): Does every room have windows, skylights, doors, or transoms in the outside wall or roof that open easily to at least 4% of the floor area of that room; or adequate mechanical ventilation systems?
+A: Yes
+	Q(56.1):GOTO:transparent
+A(X): No
+	Q(30.66):GOTO:transparent
+
+
+Q(transparent): Does each room have transparent or translucent glass that admits light from the outdoors?   -  (The glass must be equal in area to at least 8% of the floor area of that room. This does not apply to a bathroom or a kitchen smaller than 70 square feet.)
+A: Yes
+	Q(30.67):GOTO:emergency
+A(X): No
+	Q(57.2):GOTO:emergency
+
+
+Q(emergency): If the building has 10 or more units, does it not have an emergency lighting system in halls and at exits?
+A(X): Yes
+	Q(58.1):GOTO:gasissue
+A: No
+	Q(58.2):GOTO:gasissue	
+
+
+
+
+
+
+
+
+Q(gasissue): Is there an issue with the electricity, wiring or gas?
+A: Yes
+	Q(59.1):GOTO:metered
+A: No
+
+
+
+Q(metered): Did the landlord not provide and pay for electricity and gas if your apartment is not individually metered?  -  (unless you have a written rental agreement that says you must pay for electric and gas.)
+A(X): Yes
+	Q(60.1):GOTO:service
+A: No
+	Q(58.45):GOTO:service	
+
+
+
+
+Q(service): Is there an electrical service that provides enough amperage to meet your reasonable needs?
+A: Yes
+	Q(58.46):GOTO:2seperate
+A(X): No
+	Q(58.47):GOTO:2seperate
+
+
+
+
+Q(2seperate): Did your landlord provide in every room other than the kitchen and bathroom 2 separate electrical wall outlets, or 1 electric light fixture and 1 wall outlet?
+A: Yes
+		
+A(X): No
+
+
+
+
+
 
 
 
