@@ -4,7 +4,7 @@ Before:
 
 
 
-Q(initial): Are you representing yourself in an eviction case? - this QnA does not provide legal advice 
+Q(initial): Are you representing yourself in an eviction case? - (If any question does not apply to you press=No)  -  this QnA does not provide legal advice 
 A: Yes 
 	Q(other):GOTO:inspection
 
@@ -93,9 +93,9 @@ A: No
 
 Q(rats): Is there any accumulation of garbage or filth that may provide food or shelter for rodents, insects, or other pests; or that may contribute to accidents or disease?
 A(X): Yes
-	Q(12.1):GOTO:Leadpaint
+	Q(12.1):GOTO:leadpaint
 A: No
-	Q(12.2):GOTO:Leadpaint
+	Q(12.2):GOTO:leadpaint
 
 
 Q(Leadpaint):Is there any Lead paint that a child under age 6 could reach?
@@ -822,6 +822,7 @@ Q(generalmaintenanceissue): Is there an issue with the General Maintenance?
 A: Yes
 	Q(101.1):GOTO:commonareasclean
 A: No
+	Q(101.111):GOTO:rodentissue
 
 
 Q(commonareasclean): Does the landlord keep common areas clean and sanitary?
@@ -893,9 +894,84 @@ A(X): No
 
 Q(areallelectrical): Are all electrical fixtures, outlets, and wiring installed correctly and kept free of leaks, blocks, and other defects?
 A: Yes
-	
+	Q(112.1):GOTO:smokedetecandcarbon
 A(X): No
+	Q(112.2):GOTO:smokedetecandcarbon
+
 	
+Q(smokedetecandcarbon): Are all smoke detectors and carbon monoxide alarms installed correctly and kept free of leaks, blocks, and other defects?
+A: Yes
+	Q(113.1):GOTO:heatingandventilation
+A(X): No
+	Q(113.2):GOTO:heatingandventilation
+
+
+Q(heatingandventilation): Is the heating and ventilation equipment installed correctly and kept free of leaks, blocks, and other defects?
+A: Yes
+	Q(114.1):GOTO:dishwasherandwashingmachine
+A(X): No
+	Q(114.2):GOTO:dishwasherandwashingmachine
+
+
+Q(dishwasherandwashingmachine): Is the Landlord-installed equipment, including dishwashers, washing machines, dryers, refrigerators, and garbage disposals installed correctly and kept free of leaks, blocks, and other defects?
+A: Yes
+	Q(115.1):GOTO:rodentissue
+A(X): No
+	Q(115.2):GOTO:rodentissue
+	
+
+
+
+
+
+
+
+
+
+Q(rodentissue): Is there an issue with rodents or insects?
+A: Yes 
+	Q(116.1):GOTO:ratsandroaches
+A: No
+	Q(116.111):GOTO:watertightgarbage
+
+
+Q(ratsandroaches): Are there rats, roaches, mice, bedbugs, or other insects in the apartment or building?   -  (The landlord must exterminate them when they are found in common areas or in any individual apartment in buildings with two or more units.)
+A(X): Yes
+	Q(117.1):GOTO:watertightgarbage
+A: No
+	Q(117.2):GOTO:watertightgarbage
+
+
+
+
+
+Q(watertightgarbage): If the building has 3 or more units, does the landlord not provide enough watertight garbage cans?   -  (Cans must have tightly fitting covers. The landlord must put cans in places that are convenient to tenants and do not allow odors into your living space.)
+A(X): Yes
+	Q(118.1):GOTO:takecareofgarbage
+A: No
+	Q(118.2):GOTO:takecareofgarbage
+
+
+Q(takecareofgarbage): In buildings with 3 or more units, does the landlord not take care of collecting and disposing of garbage?
+A(X): Yes
+	Q(119.1):GOTO:leadpaints
+A: No
+	Q(119.2):GOTO:leadpaints
+
+
+Q(leadpaints): Is lead paint used on any surface?
+A(X): Yes
+	Q(120.1):GOTO:childunder6
+A: No
+	Q(120.2):GOTO:childunder6
+
+
+
+Q(childunder6): If you have a child under the age of 6, does your landlord not remove or properly cover lead paint up to 5 feet from the floor?    -  (Repainting with a non-lead paint is not good enough.)(It is illegal to refuse to rent or to evict a household because of lead paint.)
+A(X): Yes	
+A: No
+
+
 
 
 
