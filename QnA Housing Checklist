@@ -374,15 +374,20 @@ d)	Filed a certificate with the local board of health, or the agency responsible
 
 A: Yes
 	Q(30.48):GOTO:submeter
-A: No
+A(X): No
 	Q(30.49):GOTO:submeter
 
 
 Q(submeter): Does the landlord allow you access to any water submeters that affect your unit so that you can check them?
 A: Yes
 	Q(30.50):GOTO:heatissues
-A: No
+A(X): No
 	Q(30.51):GOTO:heatissues
+
+
+
+
+
 
 
 
@@ -391,9 +396,41 @@ A: No
 
 Q(heatissues): Is there any issue with the heat?
 A: Yes
+	Q(30.52):GOTO:degrees68
 A: No
 
 
+Q(degrees68): From September 16 to June 14, does the landlord provide equipment and appliances to heat any room to be used for living, sleeping, cooking, or eating at a temperature of 68 degrees Fahrenheit between 7 a.m. and 11 p.m.?
+A: Yes
+	Q(30.53):GOTO:degrees64
+A(X): No
+	Q(30.54):GOTO:degrees64
+
+Q(degrees64): From September 16 to June 14, does the landlord provide equipment and appliances to heat any room to be used for living, sleeping, cooking, or eating at a temperature of 64 degrees Fahrenheit between 11 p.m. and 7 a.m?
+A: Yes
+	Q(30.55):GOTO:landlordprovide
+A(X): No
+	Q(30.56):GOTO:landlordprovide
+
+
+Q(landlordprovide): Did the landlord provide and maintain heating equipment in good working order?
+A: Yes
+	Q(30.57):GOTO:spaceheater
+A(X): No
+	Q(30.58):GOTO:spaceheater
+
+
+
+Q(spaceheater): Do the Space heaters have a vent to a chimney or a vent that leads outdoors?    - (If the heater is electric, it does not need a vent.)
+A: Yes
+	Q(30.59):GOTO:payheat
+A(X): No
+	Q(30.560):GOTO:payheat
+
+
+Q(payheat): Did the landlord provide and pay for heat unless you signed a written agreement that says you must pay for heat?
+Yes: 
+No(X):
 
 
 
