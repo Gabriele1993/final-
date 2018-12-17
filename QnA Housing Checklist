@@ -681,7 +681,7 @@ A: No
 Q(mainfrontdoor): Does the main front door that closes and locks automatically and every exterior door have an operating lock?
 A: Yes
 	Q(84.1):GOTO:70feettall
-A: No
+A(X): No
 	Q(84.2):GOTO:70feettall
 
 
@@ -969,16 +969,16 @@ A: No
 
 Q(childunder6): If you have a child under the age of 6, does your landlord not remove or properly cover lead paint up to 5 feet from the floor?    -  (Repainting with a non-lead paint is not good enough.)(It is illegal to refuse to rent or to evict a household because of lead paint.)
 A(X): Yes
-	Q(120.3):GOTO:theend	
+	Q(121.1):GOTO:theend	
 A: No
-	Q(120.4):GOTO:theend
+	Q(121.2):GOTO:theend
 
 
 
 
 Q(theend): The End. Thank you for taking this QnA. Would you like a copy of the results? - (recommended)
-A: Yes
-
+A:[javascript:save2('mailmerge.csv',csv())]  Yes
+	
 A: No
 
 
