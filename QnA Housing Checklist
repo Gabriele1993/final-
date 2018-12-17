@@ -820,7 +820,48 @@ A(X): No
 
 Q(generalmaintenanceissue): Is there an issue with the General Maintenance?
 A: Yes
+	Q(100.4):GOTO:commonareasclean
 A: No
+
+
+Q(commonareasclean): Does the landlord keep common areas clean and sanitary?
+A: Yes
+	Q(100.5):GOTO:signinproperty
+A(X): No
+	Q(100.6):GOTO:signinproperty
+
+
+Q(signinproperty): If the landlord or a manager does not live in the property, does the landlord post a sign with the name, address, and phone number of the landlord or their agent?   -  (The sign must be inside the building and at least 20 square inches.)
+A: Yes
+	Q(100.7):GOTO:interferewater
+(X): No
+	Q(100.8):GOTO:interferewater
+
+Q(interferewater): Does the landlord turn off or interfere with a tenant’s water, hot water, heat, light, power, or gas?  -  (The only time a landlord may shut off utilities temporarily, is to make necessary repairs. And the landlord must give you “reasonable notice.”)
+A(X): Yes
+	Q(100.9):GOTO:screensonwindows
+A: No
+	Q(100.10):GOTO:screensonwindows
+
+
+Q(screensonwindows): Do all the windows that open to the outside, on the first four floors, have screens between April 1 and October 30?
+A: Yes
+	Q(100.11):GOTO:opendirectly
+A(X): No
+	Q(100.12):GOTO:opendirectly
+
+
+Q(opendirectly): Do all the doors that open directly to the outside have screens between April 1 and October 30?
+A: Yes
+	Q(100.13):GOTO:freeofblocksandleaks
+A(X): No
+	Q(100.14):GOTO:freeofblocksandleaks
+
+
+Q(freeofblocksandleaks): Are the sinks, bathtubs, showers and toilets installed correctly and kept free of leaks, blocks, and other defects?
+A: Yes
+A(X): No
+
 
 
 
