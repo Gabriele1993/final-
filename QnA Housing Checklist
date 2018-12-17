@@ -192,15 +192,21 @@ A: No
 
 
 
+
+
+
+
+
+
+
+
+
 Q(kitchenissue): Is there a problem with the kitchen?
 A: Yes
 	Q(18.56):GOTO:washdishes
 A: No
+	Q(18.561):GOTO:bathroomproblem
 	
-
-
-<Kitchen part>
-
 
 Q(washdishes): Is the sink large enough to wash dishes, get hot and cold water, and have proper drainage?
 A: Yes
@@ -235,9 +241,87 @@ A(X): No
 
 Q(electricaloutlet): Is there space and a proper electrical outlet to install a refrigerator?
 A: Yes
+	Q(31.1):GOTO:bathroomproblem
 	
 A(X): No
+	Q(31.2):GOTO:bathroomproblem
 	
+
+
+
+
+
+
+
+
+Q(bathroomproblem): Is there an issue with the bathroom?
+A: Yes
+	Q(32.1):GOTO:onetoilet
+A: No
+	Q(32.2):GOTO:onetoilet
+
+
+Q(onetoilet): Is there one toilet, free from defects in a room not used for living, sleeping, cooking, or eating?
+A: Yes
+	Q(33.1):GOTO:onesink
+A(X): No
+	Q(33.2):GOTO:onesink
+
+
+Q(onesink):Is there one sink, free from defects?
+A:Yes
+	Q(34.1):GOTO:oneshower
+A(X): No
+	Q(30.10):GOTO:oneshower
+
+
+Q(oneshower): Is there one shower or bathtub, free from defects in a room not used for living, sleeping, cooking, or eating?
+A: Yes
+	Q(30.12):GOTO:lightfixturebathroom
+A(X): No
+	Q(30.13):GOTO:lightfixturebathroom
+
+
+
+Q(lightfixturebathroom): Is there an electric light fixture in the bathroom, in good condition?
+A: Yes
+	Q(30.14):GOTO:Adequateventilation
+A(X): No
+	Q(30.15):GOTO:Adequateventilation
+
+
+Q(Adequateventilation): Is there adequate ventilation in the bathroom?
+A: Yes
+	Q(30.17):GOTO:bathroomfloor
+A(X): No
+	Q(30.16):GOTO:bathroomfloor
+
+
+Q(bathroomfloor): Is the bathroom floor smooth, nonabsorbent, and does it have a waterproof covering?
+A: Yes
+	Q(30.20):GOTO:nonabsorbent
+A(X): No
+	Q(30.21):GOTO:nonabsorbent
+
+
+Q(nonabsorbent): Are the walls of the bathroom nonabsorbent, waterproof, and smooth up to 4 feet?  - (Walls above bathtubs with showers or shower stalls must have nonabsorbent, waterproof covering up to at least 6 feet)
+A: Yes
+	Q(30.22):GOTO:eachroom
+A(X): No
+	Q(30.23):GOTO:eachroom
+
+
+Q(eachroom): Does each room that contains a toilet, bathtub, or shower have a closable door?
+A: Yes
+	
+A: No
+	
+
+
+
+
+
+
 
 
 
