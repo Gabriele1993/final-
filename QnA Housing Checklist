@@ -717,7 +717,7 @@ Q(structuralissue): Is there a structural maintenance issue?
 A: Yes
 	Q(88.1):GOTO:Foundation
 A: No
-	
+	Q(88.11):GOTO:spaceissue
 
 Q(Foundation): Is the Foundation: weathertight, free from chronic dampness, insect-proof, and rodent-proof, without free of holes, cracks, loose plaster and other defects?
 A: Yes 
@@ -762,9 +762,68 @@ A(X): No
 
 Q(chimneysandother): Are the chimneys and other structural elements weathertight, free from chronic dampness, insect-proof, and rodent-proof, without free of holes, cracks, loose plaster and other defects?
 A: Yes 
-	
+	Q(95.1):GOTO:safestairs
 A(X): No
-	
+	Q(95.2):GOTO:safestairs
+
+
+Q(safestairs): Are the staircases stable with a safe handrail?
+A: Yes
+	Q(96.1):GOTO:everyporch
+A(X): No
+	Q(96.111):GOTO:everyporch
+
+
+Q(everyporch): Does every porch, balcony or roof over 30 inches above the ground have a wall or guardrail that is at least 3 feet high?
+A: Yes
+	Q(96.1112):GOTO:spaceissue
+A: No
+	Q(96.1111):GOTO:spaceissue
+
+
+
+
+
+
+
+
+
+
+
+
+Q(spaceissue): Is there a space issue?
+A: Yes
+	Q(96.111123):GOTO:150sqdwelling
+A: No
+	Q(96.1111233):GOTO:generalmaintenanceissue
+
+
+Q(150sqdwelling): Does the dwelling unit have at least 150 square feet of floor space for the first occupant and 100 square feet for each additional occupant?    -  (Add up all the floor space in “habitable rooms” to get the number of square feet in your unit.)
+A: Yes
+	Q(99.1):GOTO:onepersonsleeps
+A(X): No
+	Q(99.2):GOTO:onepersonsleeps
+
+
+Q(onepersonsleeps): Does every bedroom have at least 70 square feet of floor space if only one person sleeps there?   -  (If more than one person is sleeping in the room, it must have 50 square feet of floor space for each person.)
+A: Yes
+	Q(98.21):GOTO:generalmaintenanceissue
+A(X): No
+	Q(100.2):GOTO:generalmaintenanceissue
+
+
+
+
+
+
+
+
+Q(generalmaintenanceissue): Is there an issue with the General Maintenance?
+A: Yes
+A: No
+
+
+
 
 
 
