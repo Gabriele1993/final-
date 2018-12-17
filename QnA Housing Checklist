@@ -510,12 +510,95 @@ A(X): No
 
 Q(2seperate): Did your landlord provide in every room other than the kitchen and bathroom 2 separate electrical wall outlets, or 1 electric light fixture and 1 wall outlet?
 A: Yes
-		
+	Q(58.48):GOTO:laundtyroom
 A(X): No
+	Q(58.49):GOTO:laundtyroom
 
 
 
 
+Q(laundtyroom): Did your landlord provide and place electric light fixtures and switches that allow safe and reasonable use of the Laundry room?
+A: Yes
+	Q(63.1):GOTO:pantry
+A(X): No
+	Q(58.51):GOTO:pantry
+
+
+Q(pantry): Did your landlord provide and place electric light fixtures and switches that allow safe and reasonable use of the Pantry?
+A: Yes
+	Q(58.52):GOTO:hallways
+A(X): No
+	Q(64.2):GOTO:hallways
+
+
+Q(hallways): Did your landlord provide and place electric light fixtures and switches that allow safe and reasonable use of the hallways, stairways, foyer, or community corridor?
+A: Yes
+	Q(65.1):GOTO:closetspace
+
+A(X): No
+	Q(65.2):GOTO:closetspace
+
+
+
+Q(closetspace): Did your landlord provide and place electric light fixtures and switches that allow safe and reasonable use of the Closet or storage space?
+A: Yes
+	Q(66.1):GOTO:cellar
+A(X): No
+	Q(66.2):GOTO:cellar
+
+
+Q(cellar): Did your landlord provide and place electric light fixtures and switches that allow safe and reasonable use of the Cellar?
+A: Yes
+	Q(67.1):GOTO:porch
+A(X): No
+	Q(67.2):GOTO:porch
+
+
+Q(porch): Did your landlord provide and place electric light fixtures and switches that allow safe and reasonable use of the porch?
+A: Yes
+	Q(68.1):GOTO:outsidestairways
+A(X): No
+	Q(68.2):GOTO:outsidestairways
+
+
+Q(outsidestairways): Did your landlord provide and place electric light fixtures and switches that allow safe and reasonable use of the outside stairways and passageways?
+A: Yes
+	Q(69.1):GOTO:wiring
+A(X): No
+	Q(69.2):GOTO:wiring
+
+
+Q(wiring): Does the wiring pass under rugs or other floor coverings, or through doorways?
+A(X): Yes
+	Q(70.1):GOTO:temporarywiring
+A: No
+	Q(70.2):GOTO:temporarywiring
+
+
+Q(temporarywiring): Is there temporary wiring?   - (this does not include the use of extension cords for portable appliances or fixtures.)
+A(X): Yes
+	Q(71.1):GOTO:Interiorpassageways
+A: No
+	Q(71.2):GOTO:Interiorpassageways
+
+
+Q(Interiorpassageways): If the dwelling has more than one unit, does the landlord not provide enough lighting for 24 hours a day in the Interior passageways?
+A(X): Yes
+	Q(72.1):GOTO:hallways2
+A: No
+	Q(72.2):GOTO:hallways2
+
+
+Q(hallways2): If the dwelling has more than one unit, does the landlord not provide enough lighting for 24 hours a day in the hallways?
+A(X): Yes
+	Q(73.1):GOTO:stairwaylight
+A: No
+	Q(73.2):GOTO:stairwaylight
+
+
+Q(stairwaylight): If the dwelling has more than one unit, does the landlord not provide enough lighting for 24 hours a day in the stairways?
+A(X): Yes	
+A: No
 
 
 
