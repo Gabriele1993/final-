@@ -258,7 +258,7 @@ Q(bathroomproblem): Is there an issue with the bathroom?
 A: Yes
 	Q(32.1):GOTO:onetoilet
 A: No
-	Q(32.2):GOTO:onetoilet
+	Q(32.2):GOTO:waterissue
 
 
 Q(onetoilet): Is there one toilet, free from defects in a room not used for living, sleeping, cooking, or eating?
@@ -313,16 +313,85 @@ A(X): No
 
 Q(eachroom): Does each room that contains a toilet, bathtub, or shower have a closable door?
 A: Yes
+	Q(30.26):GOTO:waterissue
 	
+A(X): No
+	Q(30.25):GOTO:waterissue
+	
+
+
+
+
+
+
+
+Q(waterissue): Is there an issue with the water?
+A: Yes
+	Q(30.251):GOTO:enoughwater
 A: No
+	Q(30.2511):GOTO:heatissues
 	
 
 
+Q(enoughwater): Is there enough water, with adequate pressure, to meet your ordinary needs?
+A: Yes
+	Q(30.27):GOTO:watertemp
+A(X): No
+	Q(30.28):GOTO:watertemp
+
+
+Q(watertemp): Is there enough hot water at a temperature between 110 and 130 degrees Fahrenheit, with enough pressure, for your ordinary use? - (If you have a written rental agreement that says you must provide hot water, then your landlord does not have to provide it.)
+A: Yes
+	Q(30.40):GOTO:waterheater
+
+A(X): No
+	Q(30.41):GOTO:waterheater
+
+
+Q(waterheater): Is there a water heater that vents to a chimney or vent that leads outdoors? - ( If the heater is electric, it does not need a vent. Old-fashioned, open-flame water heaters are illegal.)
+A: Yes
+	Q(30.44):GOTO:connected
+A(X): No
+	Q(30.45):GOTO:connected
+
+
+
+Q(connected): Is the toilet, sink, kitchen sink, and shower or bathtub connected correctly to hot and cold water lines? - (They must also be connected correctly to a sanitary drain line.)
+A: Yes
+	Q(30.46):GOTO:waterbill
+A(X): No
+	Q(30.47):GOTO:waterbill
+
+Q(waterbill): Does the landlord bill the tenant for water and sewer?  -  (this is allowed only if the tenant moved into the apartment on or after March 16, 2005 and if the landlord has:
+
+a)     Installed and is maintaining a water submeter that measures water going only to your unit;
+
+b)	Installed low-flow water-saving devices on all showers, faucets, and toilets in your unit;
+
+c)	Described the water billing arrangements between you and the landlord, in detail, in a written rental agreement; and
+
+d)	Filed a certificate with the local board of health, or the agency responsible for enforcing the state Sanitary Code that says your unit is legal and meets the code
+
+A: Yes
+	Q(30.48):GOTO:submeter
+A: No
+	Q(30.49):GOTO:submeter
+
+
+Q(submeter): Does the landlord allow you access to any water submeters that affect your unit so that you can check them?
+A: Yes
+	Q(30.50):GOTO:heatissues
+A: No
+	Q(30.51):GOTO:heatissues
 
 
 
 
 
+
+Q(heatissues): Is there any issue with the heat?
+A: Yes
+A: No
 
 
 
